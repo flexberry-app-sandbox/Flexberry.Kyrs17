@@ -1,0 +1,15 @@
+﻿{
+  "newForm": "i-i-s-kyrs17-маршрут-e",
+  "editForm": "i-i-s-kyrs17-маршрут-e",
+  "external": false,
+  "caption": "Маршрут",
+  "name": "IISKyrs17МаршрутL",
+  "className": "МаршрутL",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-kyrs17-маршрут",
+      "modelProjection": "МаршрутL"
+    }
+  ]
+}

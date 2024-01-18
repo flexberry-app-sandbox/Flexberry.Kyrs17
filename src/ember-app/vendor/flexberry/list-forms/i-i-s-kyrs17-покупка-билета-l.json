@@ -1,0 +1,15 @@
+﻿{
+  "newForm": "i-i-s-kyrs17-покупка-билета-e",
+  "editForm": "i-i-s-kyrs17-покупка-билета-e",
+  "external": false,
+  "caption": "Покупка билета",
+  "name": "IISKyrs17ПокупкаБилетаL",
+  "className": "ПокупкаБилетаL",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-kyrs17-покупка-билета",
+      "modelProjection": "ПокупкаБилетаL"
+    }
+  ]
+}

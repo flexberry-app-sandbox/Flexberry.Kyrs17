@@ -1,0 +1,23 @@
+﻿{
+  "propertyLookup": [
+    {
+      "master": null,
+      "displayAttributeName": null,
+      "required": false,
+      "relationName": "Перевозчик",
+      "projection": "ПеревозчикL",
+      "detailModelName": null
+    }
+  ],
+  "external": false,
+  "caption": "Маршрут",
+  "name": "IISKyrs17МаршрутE",
+  "className": "МаршрутE",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-kyrs17-маршрут",
+      "modelProjection": "МаршрутE"
+    }
+  ]
+}

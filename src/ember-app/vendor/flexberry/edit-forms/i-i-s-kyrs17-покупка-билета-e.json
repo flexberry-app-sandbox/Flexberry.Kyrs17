@@ -1,0 +1,39 @@
+﻿{
+  "propertyLookup": [
+    {
+      "master": null,
+      "displayAttributeName": null,
+      "required": false,
+      "relationName": "Покупатель",
+      "projection": "ПокупательL",
+      "detailModelName": null
+    },
+    {
+      "master": null,
+      "displayAttributeName": null,
+      "required": false,
+      "relationName": "БилетКасса",
+      "projection": "БилетКассаL",
+      "detailModelName": null
+    },
+    {
+      "master": "маршрут",
+      "displayAttributeName": "времяОтправ",
+      "required": true,
+      "relationName": "Информация.Маршрут",
+      "projection": "МаршрутL",
+      "detailModelName": "i-i-s-kyrs17-информация"
+    }
+  ],
+  "external": false,
+  "caption": "Покупка билета",
+  "name": "IISKyrs17ПокупкаБилетаE",
+  "className": "ПокупкаБилетаE",
+  "attrs": [],
+  "projections": [
+    {
+      "modelName": "i-i-s-kyrs17-покупка-билета",
+      "modelProjection": "ПокупкаБилетаE"
+    }
+  ]
+}

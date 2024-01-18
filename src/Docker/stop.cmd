@@ -1,0 +1,1 @@
+docker-compose -p kyrs17 down

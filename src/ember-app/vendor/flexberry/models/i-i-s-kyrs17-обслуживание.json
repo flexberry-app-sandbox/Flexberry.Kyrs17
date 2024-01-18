@@ -1,0 +1,197 @@
+﻿{
+  "name": "IISKyrs17Обслуживание",
+  "modelName": "i-i-s-kyrs17-обслуживание",
+  "className": "Обслуживание",
+  "nameSpace": "IIS.Kyrs17",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "времяПроверки",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "готовКРаботе",
+      "type": "boolean",
+      "flexberryType": "bool",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "чекЛента",
+      "type": "boolean",
+      "flexberryType": "bool",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "билетКасса",
+      "relatedTo": "i-i-s-kyrs17-билет-касса",
+      "inverse": null
+    },
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "оператор",
+      "relatedTo": "i-i-s-kyrs17-оператор",
+      "inverse": null
+    }
+  ],
+  "hasMany": [],
+  "projections": [
+    {
+      "name": "ОбслуживаниеE",
+      "modelName": "i-i-s-kyrs17-обслуживание",
+      "attrs": [
+        {
+          "name": "чекЛента",
+          "caption": "Чек лента",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "готовКРаботе",
+          "caption": "Готов к работе",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "времяПроверки",
+          "caption": "Время проверки",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "Наименование",
+          "lookupValueField": "наименование",
+          "relationName": "БилетКасса",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "наименование",
+              "caption": "Наименование",
+              "hidden": true,
+              "index": 4
+            }
+          ],
+          "index": 3,
+          "type": "standard",
+          "caption": "Билет касса",
+          "name": "билетКасса",
+          "relatedTo": "i-i-s-kyrs17-билет-касса",
+          "inverse": null
+        },
+        {
+          "lookupValue": "ФИО",
+          "lookupValueField": "фИО",
+          "relationName": "Оператор",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "фИО",
+              "caption": "ФИО",
+              "hidden": true,
+              "index": 6
+            }
+          ],
+          "index": 5,
+          "type": "standard",
+          "caption": "Оператор",
+          "name": "оператор",
+          "relatedTo": "i-i-s-kyrs17-оператор",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    },
+    {
+      "name": "ОбслуживаниеL",
+      "modelName": "i-i-s-kyrs17-обслуживание",
+      "attrs": [
+        {
+          "name": "чекЛента",
+          "caption": "Чек лента",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "готовКРаботе",
+          "caption": "Готов к работе",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "времяПроверки",
+          "caption": "Время проверки",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "БилетКасса",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "наименование",
+              "caption": "Наименование",
+              "hidden": false,
+              "index": 3
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Наименование",
+          "name": "билетКасса",
+          "relatedTo": "i-i-s-kyrs17-билет-касса",
+          "inverse": null
+        },
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "Оператор",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "фИО",
+              "caption": "ФИО",
+              "hidden": false,
+              "index": 4
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "ФИО",
+          "name": "оператор",
+          "relatedTo": "i-i-s-kyrs17-оператор",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

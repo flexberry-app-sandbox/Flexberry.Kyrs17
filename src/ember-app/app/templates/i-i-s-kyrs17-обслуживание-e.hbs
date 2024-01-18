@@ -1,0 +1,93 @@
+<h3 class="ui header">{{t "forms.i-i-s-kyrs17-обслуживание-e.caption"}}</h3>
+
+<form class="ui form flexberry-vertical-form" role="form">
+  {{flexberry-error error=error}}
+  <div class="field">
+    <div class="flexberry-edit-panel">
+      {{#unless readonly}}
+        <button class="ui button save-button" {{action "save"}}>
+          {{t "forms.edit-form.save-button-text"}}
+        </button>
+        {{#unless model.isNew}}
+          <button class="ui button save-del-button" {{action "delete"}}>
+            {{t "forms.edit-form.delete-button-text"}}
+          </button>
+        {{/unless}}
+      {{/unless}}
+      <button class="ui button close-button" {{action "close"}}>
+        {{t "forms.edit-form.close-button-text"}}
+      </button>
+    </div>
+  </div>
+  <div class="field flexberry-validationsummary-container">
+    <div class="sixteen wide">
+      {{flexberry-validationsummary errors=(v-get validationObject "messages")}}
+    </div>
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-kyrs17-обслуживание-e.чекЛента-caption"}}</label>
+    {{flexberry-checkbox
+      readonly=readonly
+      value=model.чекЛента
+      class=(if (v-get validationModel "чекЛента" "isInvalid") "error")
+      data-test-i-i-s-kyrs17-обслуживание-e-чекЛента=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "чекЛента" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-kyrs17-обслуживание-e.готовКРаботе-caption"}}</label>
+    {{flexberry-checkbox
+      readonly=readonly
+      value=model.готовКРаботе
+      class=(if (v-get validationModel "готовКРаботе" "isInvalid") "error")
+      data-test-i-i-s-kyrs17-обслуживание-e-готовКРаботе=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "готовКРаботе" "message")}}
+  </div>
+  <div class="field">
+    {{flexberry-field
+      readonly=readonly
+      value=model.времяПроверки
+      class=(if (v-get validationModel "времяПроверки" "isInvalid") "error")
+      label=(t "forms.i-i-s-kyrs17-обслуживание-e.времяПроверки-caption")
+      data-test-i-i-s-kyrs17-обслуживание-e-времяПроверки=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "времяПроверки" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-kyrs17-обслуживание-e.билетКасса-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.билетКасса
+      displayAttributeName="наименование"
+      autocomplete=true
+      relationName="билетКасса"
+      projection="БилетКассаL"
+      title=(t "forms.i-i-s-kyrs17-обслуживание-e.билетКасса-caption")
+      readonly=readonly
+      componentName="билетКассаLookup"
+      class=(if (v-get validationModel "билетКасса" "isInvalid") "error")
+      data-test-i-i-s-kyrs17-обслуживание-e-билетКасса=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "билетКасса" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-kyrs17-обслуживание-e.оператор-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.оператор
+      displayAttributeName="фИО"
+      autocomplete=true
+      relationName="оператор"
+      projection="ОператорL"
+      title=(t "forms.i-i-s-kyrs17-обслуживание-e.оператор-caption")
+      readonly=readonly
+      componentName="операторLookup"
+      class=(if (v-get validationModel "оператор" "isInvalid") "error")
+      data-test-i-i-s-kyrs17-обслуживание-e-оператор=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "оператор" "message")}}
+  </div>
+</form>

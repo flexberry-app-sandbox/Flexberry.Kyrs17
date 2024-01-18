@@ -1,0 +1,211 @@
+﻿{
+  "name": "IISKyrs17ПокупкаБилета",
+  "modelName": "i-i-s-kyrs17-покупка-билета",
+  "className": "ПокупкаБилета",
+  "nameSpace": "IIS.Kyrs17",
+  "parentModelName": null,
+  "parentClassName": null,
+  "attrs": [
+    {
+      "name": "варПолучБилет",
+      "type": "i-i-s-kyrs17-вариант",
+      "flexberryType": "Вариант",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "времяПокупки",
+      "type": "string",
+      "flexberryType": "string",
+      "notNull": false,
+      "defaultValue": "",
+      "stored": true,
+      "ordered": false
+    },
+    {
+      "name": "датаПокупки",
+      "type": "date",
+      "flexberryType": "DateTime",
+      "notNull": false,
+      "defaultValue": "Now",
+      "stored": true,
+      "ordered": false
+    }
+  ],
+  "belongsTo": [
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "билетКасса",
+      "relatedTo": "i-i-s-kyrs17-билет-касса",
+      "inverse": null
+    },
+    {
+      "polymorphic": false,
+      "presence": true,
+      "name": "покупатель",
+      "relatedTo": "i-i-s-kyrs17-покупатель",
+      "inverse": null
+    }
+  ],
+  "hasMany": [
+    {
+      "name": "информация",
+      "relatedTo": "i-i-s-kyrs17-информация",
+      "inverse": "покупкаБилета"
+    }
+  ],
+  "projections": [
+    {
+      "name": "ПокупкаБилетаE",
+      "modelName": "i-i-s-kyrs17-покупка-билета",
+      "attrs": [
+        {
+          "name": "времяПокупки",
+          "caption": "Время покупки",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "датаПокупки",
+          "caption": "Дата покупки",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "варПолучБилет",
+          "caption": "Вар получ билет",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": "ФИО",
+          "lookupValueField": "фИО",
+          "relationName": "Покупатель",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "фИО",
+              "caption": "ФИО",
+              "hidden": true,
+              "index": 4
+            }
+          ],
+          "index": 3,
+          "type": "standard",
+          "caption": "Покупатель",
+          "name": "покупатель",
+          "relatedTo": "i-i-s-kyrs17-покупатель",
+          "inverse": null
+        },
+        {
+          "lookupValue": "Наименование",
+          "lookupValueField": "наименование",
+          "relationName": "БилетКасса",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "наименование",
+              "caption": "Наименование",
+              "hidden": true,
+              "index": 6
+            }
+          ],
+          "index": 5,
+          "type": "standard",
+          "caption": "Билет касса",
+          "name": "билетКасса",
+          "relatedTo": "i-i-s-kyrs17-билет-касса",
+          "inverse": null
+        }
+      ],
+      "hasMany": [
+        {
+          "projectionName": "ИнформацияE",
+          "caption": "Информация",
+          "name": "информация",
+          "relatedTo": "i-i-s-kyrs17-информация",
+          "inverse": null
+        }
+      ]
+    },
+    {
+      "name": "ПокупкаБилетаL",
+      "modelName": "i-i-s-kyrs17-покупка-билета",
+      "attrs": [
+        {
+          "name": "времяПокупки",
+          "caption": "Время покупки",
+          "hidden": false,
+          "index": 0
+        },
+        {
+          "name": "датаПокупки",
+          "caption": "Дата покупки",
+          "hidden": false,
+          "index": 1
+        },
+        {
+          "name": "варПолучБилет",
+          "caption": "Вар получ билет",
+          "hidden": false,
+          "index": 2
+        }
+      ],
+      "belongsTo": [
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "Покупатель",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "фИО",
+              "caption": "ФИО",
+              "hidden": false,
+              "index": 3
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "ФИО",
+          "name": "покупатель",
+          "relatedTo": "i-i-s-kyrs17-покупатель",
+          "inverse": null
+        },
+        {
+          "lookupValue": null,
+          "lookupValueField": null,
+          "relationName": "БилетКасса",
+          "belongsTo": [],
+          "hidden": false,
+          "attrs": [
+            {
+              "name": "наименование",
+              "caption": "Наименование",
+              "hidden": false,
+              "index": 4
+            }
+          ],
+          "index": -1,
+          "type": "default",
+          "caption": "Наименование",
+          "name": "билетКасса",
+          "relatedTo": "i-i-s-kyrs17-билет-касса",
+          "inverse": null
+        }
+      ],
+      "hasMany": []
+    }
+  ],
+  "stored": true,
+  "offline": true,
+  "external": false
+}

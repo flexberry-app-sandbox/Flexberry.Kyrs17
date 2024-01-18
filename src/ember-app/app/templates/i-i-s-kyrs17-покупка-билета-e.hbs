@@ -1,0 +1,108 @@
+<h3 class="ui header">{{t "forms.i-i-s-kyrs17-покупка-билета-e.caption"}}</h3>
+
+<form class="ui form flexberry-vertical-form" role="form">
+  {{flexberry-error error=error}}
+  <div class="field">
+    <div class="flexberry-edit-panel">
+      {{#unless readonly}}
+        <button class="ui button save-button" {{action "save"}}>
+          {{t "forms.edit-form.save-button-text"}}
+        </button>
+        {{#unless model.isNew}}
+          <button class="ui button save-del-button" {{action "delete"}}>
+            {{t "forms.edit-form.delete-button-text"}}
+          </button>
+        {{/unless}}
+      {{/unless}}
+      <button class="ui button close-button" {{action "close"}}>
+        {{t "forms.edit-form.close-button-text"}}
+      </button>
+    </div>
+  </div>
+  <div class="field flexberry-validationsummary-container">
+    <div class="sixteen wide">
+      {{flexberry-validationsummary errors=(v-get validationObject "messages")}}
+    </div>
+  </div>
+  <div class="field">
+    {{flexberry-field
+      readonly=readonly
+      value=model.времяПокупки
+      class=(if (v-get validationModel "времяПокупки" "isInvalid") "error")
+      label=(t "forms.i-i-s-kyrs17-покупка-билета-e.времяПокупки-caption")
+      data-test-i-i-s-kyrs17-покупка-билета-e-времяПокупки=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "времяПокупки" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-kyrs17-покупка-билета-e.датаПокупки-caption"}}</label>
+    {{flexberry-simpledatetime
+      type="date"
+      readonly=readonly
+      value=model.датаПокупки
+      class=(if (v-get validationModel "датаПокупки" "isInvalid") "error")
+      data-test-i-i-s-kyrs17-покупка-билета-e-датаПокупки=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "датаПокупки" "message")}}
+  </div>
+  <div class="field" data-test-i-i-s-kyrs17-покупка-билета-e-варПолучБилет="true">
+    <label>{{t "forms.i-i-s-kyrs17-покупка-билета-e.варПолучБилет-caption"}}</label>
+    {{flexberry-dropdown
+      items=(flexberry-enum "i-i-s-kyrs17-вариант")
+      value=model.варПолучБилет
+      class=(if (v-get validationModel "варПолучБилет" "isInvalid") "error")
+      readonly=readonly
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "варПолучБилет" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-kyrs17-покупка-билета-e.покупатель-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.покупатель
+      displayAttributeName="фИО"
+      autocomplete=true
+      relationName="покупатель"
+      projection="ПокупательL"
+      title=(t "forms.i-i-s-kyrs17-покупка-билета-e.покупатель-caption")
+      readonly=readonly
+      componentName="покупательLookup"
+      class=(if (v-get validationModel "покупатель" "isInvalid") "error")
+      data-test-i-i-s-kyrs17-покупка-билета-e-покупатель=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "покупатель" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-kyrs17-покупка-билета-e.билетКасса-caption"}}</label>
+    {{flexberry-lookup
+      choose="showLookupDialog"
+      remove="removeLookupValue"
+      value=model.билетКасса
+      displayAttributeName="наименование"
+      autocomplete=true
+      relationName="билетКасса"
+      projection="БилетКассаL"
+      title=(t "forms.i-i-s-kyrs17-покупка-билета-e.билетКасса-caption")
+      readonly=readonly
+      componentName="билетКассаLookup"
+      class=(if (v-get validationModel "билетКасса" "isInvalid") "error")
+      data-test-i-i-s-kyrs17-покупка-билета-e-билетКасса=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "билетКасса" "message")}}
+  </div>
+  <div class="field">
+    <label>{{t "forms.i-i-s-kyrs17-покупка-билета-e.информация-caption"}}</label>
+    {{flexberry-groupedit
+      componentName="информацияGroupEdit"
+      mainModelProjection=modelProjection
+      modelProjection=modelProjection.attributes.информация
+      content=model.информация
+      readonly=readonly
+      orderable=false
+      class=(if (v-get validationModel "информация" "isInvalid") "error")
+      data-test-i-i-s-kyrs17-покупка-билета-e-информация=true
+    }}
+    {{flexberry-validationmessage error=(v-get validationModel "информация" "message")}}
+  </div>
+</form>
